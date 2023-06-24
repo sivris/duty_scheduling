@@ -1,13 +1,15 @@
 import json
 
-def save_last_names_to_json(day_a:str, day_b:str, fri_a:str, fri_b:str, wend_a:str, wend_b:str) -> bool:
+
+def save_last_names_to_json(day_a: str, day_b: str, fri_a: str, fri_b: str,
+                            wend_a: str, wend_b: str) -> bool:
     """
     function for saving the last names of the order in a json file
     parameters: strings with the names
     """
     # save the names in a dictionary
-    last = {"weekday_a":day_a, "weekday_b":day_b, "friday_a":fri_a, "friday_b":fri_b, "weekend_a":wend_a,\
-            "weekend_b":wend_b}
+    last = {"weekday_a": day_a, "weekday_b": day_b, "friday_a": fri_a,
+            "friday_b": fri_b, "weekend_a": wend_a, "weekend_b": wend_b}
 
     try:
         # open the file for writing
@@ -21,23 +23,24 @@ def save_last_names_to_json(day_a:str, day_b:str, fri_a:str, fri_b:str, wend_a:s
         return False
 
 
-def get_names_from_json() ->dict:
+def get_names_from_json() -> dict:
     """
     function for getting the names from json file and returns a dictionary.
     """
     try:
         # open the file
         with open("last_names.json", "r", encoding="utf-8") as file:
-            
+
             # load the contents as dictionary
             dictionary = json.load(file)
-            
+
             # return the dictionary
             return dictionary
     # catch the exception
     except Exception as e:
         print(e)
         return False
+
 
 """
 last_weekdays_a = 'ΣΙΑΜΕΤΗΣ'

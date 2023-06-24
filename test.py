@@ -1,6 +1,4 @@
-import pandas as pd
+x = [1,2,3,4,5,6]
 
-df = pd.read_excel(r'sort_data.xlsx')
-
-for name in df.loc[:, 'weekdays A']:
-    print(name)
+x.remove(3)
+print(x)

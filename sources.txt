@@ -1,2 +1,3 @@
 https://realpython.com/openpyxl-excel-spreadsheets-python/
 https://www.statology.org/pandas-group-by-month/
+https://realpython.com/pandas-python-explore-dataset/
