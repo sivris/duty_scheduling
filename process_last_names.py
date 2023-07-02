@@ -8,8 +8,9 @@ def save_last_names_to_json(day_a: str, day_b: str, fri_a: str, fri_b: str,
     parameters: strings with the names
     """
     # save the names in a dictionary
-    last = {"weekday_a": day_a, "weekday_b": day_b, "friday_a": fri_a,
-            "friday_b": fri_b, "weekend_a": wend_a, "weekend_b": wend_b}
+    last = {"last_weekday_a": day_a, "last_weekday_b": day_b,
+            "last_friday_a": fri_a, "last_friday_b": fri_b,
+            "last_weekend_a": wend_a, "last_weekend_b": wend_b}
 
     try:
         # open the file for writing
