@@ -24,7 +24,7 @@ def save_last_names_to_json(day_a: str, day_b: str, fri_a: str, fri_b: str,
         return False
 
 
-def get_names_from_json() -> dict:
+def get_names_from_json() -> dict | bool:
     """
     function for getting the names from json file and returns a dictionary.
     """
@@ -38,6 +38,72 @@ def get_names_from_json() -> dict:
             # return the dictionary
             return dictionary
     # catch the exception
+    except Exception as e:
+        print(e)
+        return False
+
+
+def save_leftovers_json(names: dict) -> bool:
+    """
+    function for saving the names that left over in a json file
+    """
+    try:
+        # open file for writing
+        with open("leftovers.json", "w", encoding="utf-8") as file:
+            json.dump(obj=names, fp=file, ensure_ascii=False)
+            return True
+    # catch any exception
+    except Exception as e:
+        print(e)
+        return False
+
+
+def get_leftovers() -> dict | bool:
+    """
+    function to get the names that left over from the previous month.
+    """
+    try:
+        # open file
+        with open("leftovers.json", "r", encoding="utf-8") as file:
+
+            # load the contents as dictionary
+            dictionary = json.load(file)
+
+            # return the dictionary
+            return dictionary
+    except Exception as e:
+        print(e)
+        return False
+
+
+def save_last_day(names: list) -> bool:
+    """
+    function for saving the names from the last day of the previous month
+    """
+    try:
+        # open file
+        with open("last_day.json", "w", encoding="utf-8") as file:
+            json.dump(names, file, ensure_ascii=False)
+            return True
+    # catch any exception
+    except Exception as e:
+        print(e)
+        return False
+
+
+def get_last_day() -> list | bool:
+    """
+    function for getting the names from the last day of the previous month in
+    a list.
+    """
+    try:
+        with open("last_day.json", "r", encoding="utf-8") as file:
+
+            # load the content
+            names = json.load(file)
+
+            # return the list
+            return names
     except Exception as e:
         print(e)
         return False
